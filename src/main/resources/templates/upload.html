@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Stock Entries</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sticky-footer-navbar/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Stock Entries</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/show">View Records<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Add Record</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/uploadMany">Upload Records From CSV</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 5%; padding-bottom: 5%;">
+        <h2>Upload An Entry</h2>
+        <p>Please fill out the form below to upload an entry.</p>
+        <form method="POST" action="#" th:action="@{upload}"  th:object="${stocktickerentry}">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Quarter</label>
+              <input th:field="*{quarter}" type="number" class="form-control" id="quarter" aria-describedby="emailHelp" placeholder="Enter Quarter">
+            </div>
+            
+            <div class="form-group">
+                <label for="exampleInputEmail1">Stock</label>
+                <input th:field="*{stock}" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Stock">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">Date</label>
+                <input th:field="*{date}" type="Date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Date">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">High</label>
+                <input th:field="*{high}" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="High">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">Low</label>
+                <input th:field="*{low}" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Low">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">Close</label>
+                <input th:field="*{close}" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Close">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">Open</label>
+                <input th:field="*{open}" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Open">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">Volume</label>
+                <input th:field="*{volume}" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Volume">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">Percent Change Price</label>
+                <input th:field="*{percentChangePrice}" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Percent Change Price">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">Percent Change Volume</label>
+                <input th:field="*{percentChangeVolume}" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Percent Change Volume">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">Previous Weeks Volume</label>
+                <input th:field="*{previousWeeksVolume}" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Previous Weeks Volume">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">Next Weeks Open</label>
+                <input th:field="*{nextWeekOpen}" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Next Weeks Open">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">Next Weeks Close</label>
+                <input th:field="*{nextWeekClose}" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Next Weeks Close">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">Percent Change in Next Weeks Price</label>
+                <input th:field="*{percentChangeNWPrice}" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Percent Change in Next Weeks Price">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">Days to Next Dividend</label>
+                <input th:field="*{daysToNextDividend}" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Days to Next Dividend">
+              </div>
+              
+            <div class="form-group">
+                <label for="exampleInputEmail1">Percent Return Next Dividend</label>
+                <input th:field="*{percentReturnNextDividend}" type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Percent Return Next Dividend">
+              </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
